@@ -1,0 +1,7 @@
+C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\Database\bin\Debug\Database.dacpac
+C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\Database\obj\Debug\Model.xml
+C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\Database\obj\Debug\refactor.xml
+C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\Database\obj\Debug\postdeploy.sql
+C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\Database\obj\Debug\predeploy.sql
+C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\Database\obj\Debug\Database.dll
+C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\Database\obj\Debug\Database.pdb
