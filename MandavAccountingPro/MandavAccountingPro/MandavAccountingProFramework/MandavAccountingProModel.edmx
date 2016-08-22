@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AccountsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SortOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="CurrencyId" />
+          </Key>
+          <Property Name="CurrencyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CurrencyFormalName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CurrencySymbol" Type="nvarchar" MaxLength="10" />
+          <Property Name="CurrencyShortName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="OrgID" />
+          </Key>
+          <Property Name="OrgID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgMailingName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgCountryID" Type="int" />
+          <Property Name="OrgStateID" Type="int" />
+          <Property Name="OrgPincode" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgPhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgMobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgFaxNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgWebsite" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgPanNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgSaleTaxNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrgVatID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CurrencyID" Type="int" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Organization_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Organization" Type="Self.Organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Organization">
+              <PropertyRef Name="OrgCountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Organization_Currency">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+          <End Role="Organization" Type="Self.Organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="CurrencyId" />
+            </Principal>
+            <Dependent Role="Organization">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Organization_State">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Organization" Type="Self.Organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Organization">
+              <PropertyRef Name="OrgStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AccountsModelStoreContainer">
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Organization_Country" Association="Self.FK_Organization_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Organization" EntitySet="Organization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Organization_Currency" Association="Self.FK_Organization_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="Organization" EntitySet="Organization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Organization_State" Association="Self.FK_Organization_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="Organization" EntitySet="Organization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AccountsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" />
+          <NavigationProperty Name="Organizations" Relationship="Self.FK_Organization_Country" FromRole="Country" ToRole="Organization" />
+          <NavigationProperty Name="States" Relationship="Self.FK_State_Country" FromRole="Country" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="CurrencyId" />
+          </Key>
+          <Property Name="CurrencyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CurrencyFormalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencySymbol" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencyShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organizations" Relationship="Self.FK_Organization_Currency" FromRole="Currency" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="OrgID" />
+          </Key>
+          <Property Name="OrgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgMailingName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgCountryID" Type="Int32" />
+          <Property Name="OrgStateID" Type="Int32" />
+          <Property Name="OrgPincode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgFaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgWebsite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgPanNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgSaleTaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgVatID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencyID" Type="Int32" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Organization_Country" FromRole="Organization" ToRole="Country" />
+          <NavigationProperty Name="Currency" Relationship="Self.FK_Organization_Currency" FromRole="Organization" ToRole="Currency" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Organization_State" FromRole="Organization" ToRole="State" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryID" Type="Int32" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_State_Country" FromRole="State" ToRole="Country" />
+          <NavigationProperty Name="Organizations" Relationship="Self.FK_Organization_State" FromRole="State" ToRole="Organization" />
+        </EntityType>
+        <Association Name="FK_Organization_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Organization" Type="Self.Organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Organization">
+              <PropertyRef Name="OrgCountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Organization_Currency">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+          <End Role="Organization" Type="Self.Organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="CurrencyId" />
+            </Principal>
+            <Dependent Role="Organization">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Organization_State">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Organization" Type="Self.Organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Organization">
+              <PropertyRef Name="OrgStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AccountsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Currencies" EntityType="Self.Currency" />
+          <EntitySet Name="Organizations" EntityType="Self.Organization" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <AssociationSet Name="FK_Organization_Country" Association="Self.FK_Organization_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Organization" EntitySet="Organizations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="State" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Organization_Currency" Association="Self.FK_Organization_Currency">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="Organization" EntitySet="Organizations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Organization_State" Association="Self.FK_Organization_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="Organization" EntitySet="Organizations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AccountsModelStoreContainer" CdmEntityContainer="AccountsEntities">
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="AccountsModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="AccountsModel.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="CurrencyFormalName" ColumnName="CurrencyFormalName" />
+                <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
+                <ScalarProperty Name="CurrencyShortName" ColumnName="CurrencyShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizations">
+            <EntityTypeMapping TypeName="AccountsModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+                <ScalarProperty Name="OrgMailingName" ColumnName="OrgMailingName" />
+                <ScalarProperty Name="OrgAddress" ColumnName="OrgAddress" />
+                <ScalarProperty Name="OrgCountryID" ColumnName="OrgCountryID" />
+                <ScalarProperty Name="OrgStateID" ColumnName="OrgStateID" />
+                <ScalarProperty Name="OrgPincode" ColumnName="OrgPincode" />
+                <ScalarProperty Name="OrgPhoneNumber" ColumnName="OrgPhoneNumber" />
+                <ScalarProperty Name="OrgMobile" ColumnName="OrgMobile" />
+                <ScalarProperty Name="OrgFaxNo" ColumnName="OrgFaxNo" />
+                <ScalarProperty Name="OrgEmail" ColumnName="OrgEmail" />
+                <ScalarProperty Name="OrgWebsite" ColumnName="OrgWebsite" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="OrgPanNo" ColumnName="OrgPanNo" />
+                <ScalarProperty Name="OrgSaleTaxNo" ColumnName="OrgSaleTaxNo" />
+                <ScalarProperty Name="OrgVatID" ColumnName="OrgVatID" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="AccountsModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

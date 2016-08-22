@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AccountsModelStoreContainer" CdmEntityContainer="AccountsEntities">
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="AccountsModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="AccountsModel.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="CurrencyFormalName" ColumnName="CurrencyFormalName" />
+          <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
+          <ScalarProperty Name="CurrencyShortName" ColumnName="CurrencyShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="AccountsModel.Organization">
+        <MappingFragment StoreEntitySet="Organization">
+          <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="OrgMailingName" ColumnName="OrgMailingName" />
+          <ScalarProperty Name="OrgAddress" ColumnName="OrgAddress" />
+          <ScalarProperty Name="OrgCountryID" ColumnName="OrgCountryID" />
+          <ScalarProperty Name="OrgStateID" ColumnName="OrgStateID" />
+          <ScalarProperty Name="OrgPincode" ColumnName="OrgPincode" />
+          <ScalarProperty Name="OrgPhoneNumber" ColumnName="OrgPhoneNumber" />
+          <ScalarProperty Name="OrgMobile" ColumnName="OrgMobile" />
+          <ScalarProperty Name="OrgFaxNo" ColumnName="OrgFaxNo" />
+          <ScalarProperty Name="OrgEmail" ColumnName="OrgEmail" />
+          <ScalarProperty Name="OrgWebsite" ColumnName="OrgWebsite" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="OrgPanNo" ColumnName="OrgPanNo" />
+          <ScalarProperty Name="OrgSaleTaxNo" ColumnName="OrgSaleTaxNo" />
+          <ScalarProperty Name="OrgVatID" ColumnName="OrgVatID" />
+          <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="AccountsModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

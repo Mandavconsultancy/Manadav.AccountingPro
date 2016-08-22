@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandavAccountingProFramework", "MandavAccountingProFramework\MandavAccountingProFramework.csproj", "{2808562E-9378-4AE5-A132-6472C8A64CEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandavAccountingPro.Web.UI", "MandavAccountingPro.Web.UI\MandavAccountingPro.Web.UI.csproj", "{518CA7D5-71C4-4F5E-AFA3-3F3D87147C98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2808562E-9378-4AE5-A132-6472C8A64CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2808562E-9378-4AE5-A132-6472C8A64CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2808562E-9378-4AE5-A132-6472C8A64CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2808562E-9378-4AE5-A132-6472C8A64CEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518CA7D5-71C4-4F5E-AFA3-3F3D87147C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518CA7D5-71C4-4F5E-AFA3-3F3D87147C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518CA7D5-71C4-4F5E-AFA3-3F3D87147C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518CA7D5-71C4-4F5E-AFA3-3F3D87147C98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
