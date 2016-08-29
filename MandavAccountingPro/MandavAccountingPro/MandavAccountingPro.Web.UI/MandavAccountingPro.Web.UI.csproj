@@ -66,23 +66,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-    <Content Include="MasterPages\Site.Master" />
-    <Content Include="css\bootstrap-theme.css.map" />
-    <Content Include="css\bootstrap.css.map" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="tables\data1.json" />
-    <Content Include="tables\data2.json" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="CurrencyInfo.aspx" />
+    <Content Include="bin\MandavAccountingPro.Web.UI.dll" />
+    <Content Include="bin\MandavAccountingPro.Web.UI.pdb" />
     <Content Include="css\bootstrap-table.css" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
@@ -91,6 +77,26 @@
     <Content Include="css\datepicker.css" />
     <Content Include="css\datepicker3.css" />
     <Content Include="css\styles.css" />
+    <Content Include="CurrencyInfoListing.aspx" />
+    <Content Include="Organization.aspx" />
+    <Content Include="OrganizationListing.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="MasterPages\Site.Master" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="tables\data1.json" />
+    <Content Include="tables\data2.json" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Dashboard.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -109,6 +115,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="curr.cs" />
+    <Compile Include="CurrencyInfo.aspx.cs">
+      <DependentUpon>CurrencyInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CurrencyInfo.aspx.designer.cs">
+      <DependentUpon>CurrencyInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CurrencyInfoListing.aspx.cs">
+      <DependentUpon>CurrencyInfoListing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CurrencyInfoListing.aspx.designer.cs">
+      <DependentUpon>CurrencyInfoListing.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,12 +140,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MAPDataContext.cs" />
     <Compile Include="MasterPages\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPages\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Organization.aspx.cs">
+      <DependentUpon>Organization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Organization.aspx.designer.cs">
+      <DependentUpon>Organization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationListing.aspx.cs">
+      <DependentUpon>OrganizationListing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganizationListing.aspx.designer.cs">
+      <DependentUpon>OrganizationListing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -69,6 +69,19 @@
 				</div>
 			</div>
 		</div><!--/.row-->
+     <a class="btn btn-danger" href="currencyinfo.aspx">
+                                                        <i class="icon-trash icon-white"></i>Add Currency
+                                                    </a>
+     <a class="btn btn-danger" href="currencyinfolisting.aspx">
+                                                        <i class="icon-trash icon-white"></i>Currency list
+                                                    </a>
+     <a class="btn btn-danger" href="organization.aspx">
+                                                        <i class="icon-trash icon-white"></i>Add Company
+                                                    </a>
+     <a class="btn btn-danger" href="organizationlisting.aspx">
+                                                        <i class="icon-trash icon-white"></i>View Company list
+                                                    </a>
+		
 		
 		<div class="row">
 			<div class="col-lg-12">

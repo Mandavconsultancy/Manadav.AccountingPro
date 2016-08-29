@@ -39,10 +39,8 @@ C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\Ma
 C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\bin\MandavAccountingPro.Web.UI.pdb
 C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\bin\MandavAccountingProFramework.dll
 C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\bin\EntityFramework.dll
 C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\bin\MandavAccountingProFramework.pdb
 C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\bin\EntityFramework.xml
 C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\obj\Debug\MandavAccountingPro.Web.UI.csprojResolveAssemblyReference.cache
 C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\obj\Debug\MandavAccountingPro.Web.UI.dll
 C:\codebase\git\Manadav.AccountingPro\MandavAccountingPro\MandavAccountingPro\MandavAccountingPro.Web.UI\obj\Debug\MandavAccountingPro.Web.UI.pdb
