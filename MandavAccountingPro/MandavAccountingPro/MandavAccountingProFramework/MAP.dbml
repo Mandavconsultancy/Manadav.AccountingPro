@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Accounts" Class="MAPDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MADSKILLS;Initial Catalog=Accounts;Integrated Security=True" SettingsObjectName="MandavAccountingProFramework.Properties.Settings" SettingsPropertyName="AccountsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.State" Member="States">
+    <Type Name="State">
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StateName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CountryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="State_Organization" Member="Organizations" ThisKey="StateID" OtherKey="OrgStateID" Type="Organization" />
+      <Association Name="Country_State" Member="Country" ThisKey="CountryID" OtherKey="CountryID" Type="Country" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Country" Member="Countries">
+    <Type Name="Country">
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CountryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Country_State" Member="States" ThisKey="CountryID" OtherKey="CountryID" Type="State" />
+      <Association Name="Country_Organization" Member="Organizations" ThisKey="CountryID" OtherKey="OrgCountryID" Type="Organization" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Currency" Member="Currencies">
+    <Type Name="Currency">
+      <Column Name="CurrencyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CurrencyFormalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CurrencySymbol" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CurrencyShortName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Currency_Organization" Member="Organizations" ThisKey="CurrencyId" OtherKey="CurrencyID" Type="Organization" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Organization" Member="Organizations">
+    <Type Name="Organization">
+      <Column Name="OrgID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrgName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgMailingName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgCountryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrgStateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrgPincode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgPhoneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgMobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgFaxNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgWebsite" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgPanNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgSaleTaxNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgVatID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CurrencyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Country_Organization" Member="Country" ThisKey="OrgCountryID" OtherKey="CountryID" Type="Country" IsForeignKey="true" />
+      <Association Name="Currency_Organization" Member="Currency" ThisKey="CurrencyID" OtherKey="CurrencyId" Type="Currency" IsForeignKey="true" />
+      <Association Name="State_Organization" Member="State" ThisKey="OrgStateID" OtherKey="StateID" Type="State" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetOrganizations" Method="GetOrganizations">
+    <ElementType Name="GetOrganizationsResult">
+      <Column Name="OrgID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrgName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgMailingName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgCountryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrgStateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrgPincode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgPhoneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgMobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgFaxNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgWebsite" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgPanNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgSaleTaxNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrgVatID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CurrencyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CountryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StateName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CurrencySymbol" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CurrencyFormalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

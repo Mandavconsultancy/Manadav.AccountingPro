@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MAP">
+  <DataContextMoniker Name="/MAPDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fc85a520-3e47-4fcb-9ca8-6db60fb7dc56" absoluteBounds="3.5, 3.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/MAPDataContext/State" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a917662b-11e3-4f0a-b5b9-d87ddda1832f" absoluteBounds="3.515, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="96d111a3-8f0e-48fc-99c0-2ccef1d0eb27" absoluteBounds="0.75, 3.875, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/MAPDataContext/Country" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2aecd8de-b405-4d5f-a629-7342faf7bcd1" absoluteBounds="0.765, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2734f03f-f34f-438d-a759-c3bcc4ef0c5f" absoluteBounds="3.5, 1, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/MAPDataContext/Currency" />
+      <nestedChildShapes>
+        <elementListCompartment Id="596a4483-cc35-400f-88c3-a3b0f4804380" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f260eaf-f812-40f4-b5e8-8fca636d8e29" absoluteBounds="6.25, 2.5, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/MAPDataContext/Organization" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1309fafb-887a-4bdb-aa96-aa7be41f310f" absoluteBounds="6.265, 2.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.56814697265625); (3.5 : 4.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MAPDataContext/Country/Country_State" />
+      <nodes>
+        <classShapeMoniker Id="96d111a3-8f0e-48fc-99c0-2ccef1d0eb27" />
+        <classShapeMoniker Id="fc85a520-3e47-4fcb-9ca8-6db60fb7dc56" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 5.2612939453125); (1.75 : 5.91990447135417); (6.25 : 5.91990447135417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MAPDataContext/Country/Country_Organization" />
+      <nodes>
+        <classShapeMoniker Id="96d111a3-8f0e-48fc-99c0-2ccef1d0eb27" />
+        <classShapeMoniker Id="2f260eaf-f812-40f4-b5e8-8fca636d8e29" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.7499995); (7.25 : 1.7499995); (7.25 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MAPDataContext/Currency/Currency_Organization" />
+      <nodes>
+        <classShapeMoniker Id="2734f03f-f34f-438d-a759-c3bcc4ef0c5f" />
+        <classShapeMoniker Id="2f260eaf-f812-40f4-b5e8-8fca636d8e29" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.56814697265625); (6.25 : 4.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MAPDataContext/State/State_Organization" />
+      <nodes>
+        <classShapeMoniker Id="fc85a520-3e47-4fcb-9ca8-6db60fb7dc56" />
+        <classShapeMoniker Id="2f260eaf-f812-40f4-b5e8-8fca636d8e29" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
